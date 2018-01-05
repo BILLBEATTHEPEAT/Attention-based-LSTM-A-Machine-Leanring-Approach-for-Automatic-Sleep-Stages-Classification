@@ -1,0 +1,14 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Methods}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Attention\040Mechanism}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Attention-based\040LSTM\040Architecture}{section.2}% 4
+\BOOKMARK [1][-]{section.3}{Experiment}{}% 5
+\BOOKMARK [2][-]{subsection.3.1}{Material}{section.3}% 6
+\BOOKMARK [2][-]{subsection.3.2}{Preprocessing}{section.3}% 7
+\BOOKMARK [2][-]{subsection.3.3}{Feature\040extraction}{section.3}% 8
+\BOOKMARK [2][-]{subsection.3.4}{Training}{section.3}% 9
+\BOOKMARK [1][-]{section.4}{Results}{}% 10
+\BOOKMARK [2][-]{subsection.4.1}{Comparison\040of\040different\040methods}{section.4}% 11
+\BOOKMARK [1][-]{section.5}{Conclusion}{}% 12
+\BOOKMARK [1][-]{section*.1}{References}{}% 13
+\BOOKMARK [1][-]{section*.2}{Appendix\040A:\040Details\040about\040the\040dataset}{}% 14

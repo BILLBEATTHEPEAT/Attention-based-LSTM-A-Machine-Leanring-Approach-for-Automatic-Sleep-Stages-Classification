@@ -113,6 +113,7 @@
 \renewcommand{\citepunct}{,\penalty\citepunctpenalty\,}
 \renewcommand{\citedash}{--}
 \usepackage{hyperref}
+\usepackage{multirow}
 
 % *** GRAPHICS RELATED PACKAGES ***
 %
@@ -485,27 +486,19 @@ IEEE, IEEEtran, journal, \LaTeX, paper, template.
 % 
 % Here we have the typical use of a "T" for an initial drop letter
 % and "HIS" in caps to complete the first word.
-\IEEEPARstart{T}{his} demo file is intended to serve as a ``starter file''
-for IEEE journal papers produced under \LaTeX\ using
-IEEEtran.cls version 1.8b and  later.
-% You must have at least 2 lines in the paragraph with the drop letter
-% (should never be an issue)
-I wish you the best of success.
+\IEEEPARstart{S}{leep} st  age classification is a very important problem in the field of Medical diagnosis. Classifying sleep stages of patients becomes one of the bases for clinical researches. Due to the pressure of work and burden of life, incidences of sleep disorder increases in morden society. What is more, some serious disturbance or diseases have relation with certain patterns of sleep disorder \cite{nakamura2017complexity}. Since the detections of sleep quality and sleep cycles are the crucial parts of the diagnosis and treatment, the recording and classification of sleep stages becomes the first and significant step of sleep analysis \cite{zhang2017sleep}. Thus, more attention has been paid on the research of sleep quality scoring and sleep stage classficiation.
 
-Such a method has been applied by several groups 
+Traditional methods of sleep stage classification depends on multi-channel biological signals named polysomnography (PSG) \cite{prabhavalkar2017analysis}. The PSG recording experiments are usually conducted in a hospital or sleep center with signals like electroencephalogram (EEG), electrooculogram (EOG), electrocardiogram (ECG) and electromyogram (EMG). This biological information being recorded simulatenously during a whole night experiment \cite{ronzhina2012sleep}.
 
-Most of the proposed sleep stage classification models belong to a family of model selection, with a certain feature set for the PSG data and a general model like Support Vector Machine or Random Forest.
+After the data collection procedures, these recorded data will be split into epochs with 30 seconds. In clinical practice, the classfication for sleep stages mainly depends on manual visual observations on epochs referring to standards and terminologies established by Rechtschaffen and Kales (R\&K) sleep scoring manual \cite{rechtschaffen1968manual}, or the manual of American Academy of Sleep Medicine (AASM) \cite{berry2012aasm}. The sleep stages are classified as: wake, rapid eye movement and non-rapid eye movement (3 stages included).
+
+
+One of the main challenges of this manual method is that the observation and scoring are onerous and time-consuming due to the need of finding characterisstic waveform like K complex and sleep spindle by staring on the screen.  Since the number of doctors with rich experience and their time and energy are limited, it is difficult to cope with the surging number of patients. Worse than the time they cost is the accuracy of manual operation: because of the influence of subjective factors, the accuracy of manual classification performed by experts is often less than 90\% \cite{norman2000interobserver}. Thus, for an more efficient diagnosis, we need to develop automatic methods for objective and accurate sleep classifications.
+
+To solve this problem, a lot of automatic sleep stage classification algorithms have been investigated and employed in recent years. Most of the proposed scoring models belong to a family of feature selection, with a certain feature set extracted from the PSG data and a general model like Support Vector Machine, Random Forest or Artificial Neural Network. Such a method has been applied by several groups of researchers. The algorithm used in feature extraction can be defined as two categories: the first category contains algorithms rely on hand-crafted features extracted using expert knowledge learned from previous clinical experience \cite{ebrahimi2008automatic,chapotot2010automated,ronzhina2012sleep,dong2017mixed,nakamura2017complexity}. Features like Power Spectral Density (PSD), Shannon Entropy, Wavelet coefficients and the statistical features are frequently used in these models. On the contrary, algorithms in the second category acquire feature representations by feeding the raw signal data into specific neural network such as Deep Belief Network (DBN), convolutional neural network (CNN) and the like \cite{ren2014convolutional,langkvist2012sleep}.
 
 The potential issue with this feature selection approach is that the features selected need to compress all the necessary information of the specific bio-information signals.
 
-\subsection{Subsection Heading Here}
-Subsection text here.
-
-% needed in second column of first page if using \IEEEpubid
-%\IEEEpubidadjcol
-
-\subsubsection{Subsubsection Heading Here}
-Subsubsection text here.
 
 
 % An example of a floating figure using the graphicx package.
@@ -670,40 +663,42 @@ The bias terms are omitted for notational simplicity. The 's' is a sequence of v
 
 \section{Experiment}
 \subsection{Material}
-In sleep stage classification study, researchers tipycally use polysomnographic (PSG) recorded data as the diagnostic material \cite{prabhavalkar2017analysis}. The PSG recording experiments are usually conducted in a hospital or sleep center with biological signals such as electroencephalogram (EEG), electrooculogram (EOG), electrocardiogram (ECG) and electromyogram (EMG) of a patient being recorded simulatenously during a whole night experiment \cite{ronzhina2012sleep}.
-
-After the data collection procedures, these signals will be split into epochs with 30 seconds. In clinical practice, the classfication for stages of sleep mainly depends on visual observations on epochs according to standards and terminologies established by Rechtschaffen and Kales (R\&K) sleep scoring manual \cite{rechtschaffen1968manual}, or the manual of American Academy of Sleep Medicine (AASM) \cite{berry2012aasm}.
 
 \begin{table}[!t]
 % increase table row spacing, adjust to taste
 \renewcommand{\arraystretch}{1.3}
-\caption{Description of the train and test set for each fold with respect to each sleep stage after removing noisy epochs (Number of epochs and Ratio[\%]}
+\caption{sleep stages after removing noisy epochs (Number of epochs and Ratio[\%]}
 \centering
-\begin{tabular}{lccccl}
+\begin{tabular}{lcccccl}
 \toprule
-  & W & N1 & N2 & N3 & R\\
+  & W & N1 & N2 & N3 & R & Total \\
 \midrule
- Number & 5833 & 4248 & 8611 & 3538 & 3206 \\
- Ratio(\%) & 22.9 & 16.7 & 33.9 & 13.9 & 12.6 \\ 
+ Number & 5833 & 4248 & 8611 & 3538 & 3206 & 25436\\
+ Ratio(\%) & 22.9 & 16.7 & 33.9 & 13.9 & 12.6 &\\ 
 \end{tabular}
 \end{table}
 
-In this investigation, we introduced a dataset contains PSGs of overnight record with 512 Hz of sampling rate recorded from 28 Asian female and male adults. According to recently proposed research \cite{chambon2017deep}, there is a trade-off for classification performance among the number of channels, the number of records and spatial extension. The PSG data we investigated includes 6 EEGs, 2 EOG, 4 EMGs 1 ECG and the snore signal. The labels were tagged by several experienced experts according to the AASM guidebook with 5 labels, Awake (W), NREM-1 (N1), NREM-2 (N2), NREM-3 (N3) and REM (R). We firstly separated the records into 30-second long epochs combined with label, excluded the epochs labeled by "?" and then concatenated them into two type of set: one was mixed with respect to epochs, the other was mixed with respect to subjects. Thus we have to kind of dataset, one has 25436 epochs as example shown in Table I; the other has 28 examples with 900 to 1000 epochs. Details about the dataset is attached on the appendix. In this paper, we test
-The model was tained to minimize the categorical crossentropy with a balanced loss function in order to obtain a relatively impartiality model prediction for all of the sleep stage. What is more, for the purpose of enchancing the discrimination of the normaly under-represented stage, like N1, we increased its weight in the loss function. To test our model, we trained the model with 5-fold cross-validation (CV) with the two datasets respectively for its abilities of learning representations for each sleep stage and the generalization among different people. The model was implemented in \emph{Keras} with a \emph{Tensorflow} backend. As an extension, we also evaluate the classifier's performance with multiple values of class, i.e. $C = 2\ to\ 6$, as our model on both of these two dataset and it all achieve performs of the state-of-the-art methods.
+In this investigation, we introduced a dataset contains PSGs of overnight record with 512 Hz of sampling rate recorded from 28 Asian female and male adults. According to recently proposed research \cite{chambon2017deep}, there is a trade-off for classification performance among the number of channels, the number of records and spatial extension. The PSG data we investigated includes 6 EEGs, 2 EOG, 4 EMGs 1 ECG and the snore signal. The labels were tagged by several experienced experts according to the AASM guidebook with 5 labels, Wake (W), NREM-1 (N1), NREM-2 (N2), NREM-3 (N3) and REM (R). We firstly separated the records into 30-second long epochs combined with label, excluded the epochs labeled by "?" and then concatenated them into two type of set: one was mixed with respect to epochs, the other was mixed with respect to subjects. Thus we have two kind of dataset, one has 25436 epochs as example shown in Table I; the other has 28 examples with 900 to 1000 epochs. Details about the dataset is attached on the appendix. In this paper, we test The model was tained to minimize the categorical crossentropy with a balanced loss function in order to obtain a relatively impartiality model prediction for all of the sleep stage. What is more, for the purpose of enchancing the discrimination of the normaly under-represented stage, like N1, we increased its weight in the loss function. To test our model, we trained the model with 5-fold cross-validation (CV) with the two datasets respectively for its abilities of learning representations for each sleep stage and the generalization among different people. The model was implemented in \emph{Keras} with a \emph{Tensorflow} backend. As an extension, we also evaluate the classifier's performance with multiple values of class, i.e. $C = 2\ to\ 6$, as our model on both of these two dataset and it all achieve performs of the state-of-the-art methods.
 
 \subsection{Preprocessing}
 In preprocessing procedure, we filter the EEG signals into five frequency band, alpha, delta, theta, beta and gamma according to previous studies and the AASM manual \cite{ronzhina2012sleep,ebrahimi2008automatic,berry2012aasm}. Then the signals are combined together again to produce a new single signal with the shape of $(-1, 512\times30)$. The '-1' denotes the number of the epochs in each sample.
 \subsection{Feature extraction}
-In this experiment, we trained our models on the features extracted from original PSG data records: time domain and frequency domain features mentioned in previous proposed papers \cite{ronzhina2012sleep,ebrahimi2008automatic,chapotot2010automated}.
+In this experiment, we trained our models on the features extracted from original PSG data records: time domain and frequency domain features through previous proposed methods \cite{ronzhina2012sleep,ebrahimi2008automatic,chapotot2010automated}.
 
 Specifically, we firstly caculated the power spectral density as the energy of the 5 frequency band for each channel: delta ($\delta$, 1 - 4 Hz), theta ($\theta$, 4 - 8 Hz), alpha ($\alpha$, 8 - 14 Hz), beta ($\beta$ 14 - 31 Hz), gamma ($\gamma$, 31 - 50 Hz). The ratio (PSD of each band to PSD of the whole) and the relative value (PSD of each band to another band) are also extracted from the PSD result. What is more, the statistic values such as maximum, minimum, mean, standard deviation, skewness and kurtosis are calculated from both the time and frequency domain. Furthermore, the Hjorth features, 95\% and 50\% of spectral edge frequency and the statistics of them are included as suppplementary features. Finally the feature set contains 770 features with 30 time-step (one second for each without overlap).
 
-Since some of the sleep stages' definition and classification contains the stages of the previous epochs, we included features from 2 epochs before and after the current epoch respectively ($30\times 2$ seconds for both side) \cite{chambon2017deep}.
+Since some of the sleep stages' definition and classification contains the stages of the previous epochs, such as the N1 stage \cite{berry2012aasm}, we included features from 1 - 2 epochs before and after the current epoch respectively ($30\ or\ 30\times 2$ seconds for both side) according to the previously proposed experiment in article\cite{chambon2017deep}.
 \subsection{Training}
 In the experiments, we used one single machine with Intel E5-2683v2 CPU$\times$2, and 128GB memory, equiped with a Nvidia GeForce GTX 1080 graphics card. We used the recorded data and the devision of dataset as mentioned in $Subsection\ A$. 
 
 The model was tained to minimize the categorical crossentropy with a balanced loss function in order to obtain a relatively impartiality model prediction for all of the sleep stage. What is more, for the purpose of enchancing the discrimination of the normaly under-represented stage, like N1, we increased its weight in the loss function. To test our model, we trained the model with 5-fold cross-validation (CV) with the two datasets respectively for its abilities of learning representations for each sleep stage and the generalization among different people. The model was implemented in \emph{Keras} with a \emph{Tensorflow} backend. As an extension, we also evaluate the classifier's performance with multiple values of class, i.e. $C = 2\ to\ 6$, as other previous research \cite{nakamura2017complexity}. As a comparison, we employed an Gradient Boosting Classifier implemented with \emph{XGBoost} \cite{Chen2016XGBoost} and a 2-layer LSTM network training on the same data.
 
+
+\section{Results}
+The features we used was extracted from the original data with Python 2.7. In this section, we will firstly conduct the results and comparison among diffrerent models. Then we will discuss the classification performance with respect to varied number of class and time span (with +/- 30 or 60s). Finally we will show the visualizaion of the attention paid to the relevant parts of the input features for each classification action.
+
+\subsection{Comparison of different methods}
+In this experiment, we trained our proposed model as well as the Gradient Boosting method and the LSTM network on both the subject-as-sample dataset and the epoch-as-sample dataset. For evaluation, we calculated the accuracy, sensitivity, precision, F1 score and the confusion matrix shown as Table II.
 
 \section{Conclusion}
 The conclusion goes here.
@@ -727,43 +722,83 @@ The conclusion goes here.
 %
   
 
+\bibliographystyle{IEEEtran}
+% argument is your BibTeX string definitions and bibliography database(s)
+\bibliography{reference}{}  
+  
+%\newpage
+\onecolumn
 \appendices
-\section{Proof of the First Zonklar Equation}
-Appendix one text goes here.
+\section{Details about the dataset}
+\vspace{0.3cm}
+\renewcommand{\arraystretch}{2}
+\centering
+\begin{tabular}{lccccccclccccccclcccccccl}
+
+Subject & W & N1 & N2 & N3 & R & '?' & Subject & W & N1 & N2 & N3 & R & '?' \\ 
+\midrule
+Subject 1 & 199 & 103 & 214 & 397 & 132 & 0 & 
+Subject 2 & 148 & 27 & 215 & 374 & 174 & 0 \\
+Subject 3 & 227 & 186 & 353 & 91 & 205 & 0 & 
+Subject 4 & 317 & 224 & 292 & 125 & 60 & 21 \\
+Subject 5 & 738 & 96 & 107 & 70 & 0 & 0 &
+Subject 6 & 172 & 47 & 375 & 240 & 129 & 0 \\ 
+Subject 7 & 43 & 6 & 41 & 58 & 0 & 861 & 
+Subject 8 & 62 & 197 & 517 & 90 & 112 & 0 \\
+Subject 9 & 149 & 183 & 373 & 90 & 158 & 0 & 
+Subject 10 & 177 & 340 & 286 & 4 & 179 & 0 \\
+Subject 11 & 190 & 339 & 444 & 18 & 42 & 74 &
+Subject 12 & 69 & 120 & 414 & 156 & 140 & 0 \\ 
+Subject 13 & 107 & 45 & 308 & 228 & 208 & 0 &
+Subject 14 & 390 & 427 & 126 & 0 & 82 & 0 \\
+Subject 15 & 131 & 167 & 386 & 134 & 144 & 1 & 
+Subject 16 & 109 & 19 & 4 & 0 & 0 & 856 \\
+Subject 17 & 312 & 135 & 356 & 119 & 99 & 0 &
+Subject 18 & 318 & 144 & 362 & 32 & 116 & 0 \\   
+Subject 19 & 100 & 46 & 326 & 355 & 189 & 0 &
+Subject 20 & 0 & 0 & 7 & 0 & 0 & 964 \\
+Subject 21 & 366 & 189 & 282 & 87 & 93 & 2 &
+Subject 22 & 121 & 128 & 320 & 321 & 166 & 0 \\
+Subject 23 & 193 & 130 & 480 & 159 & 200 & 0 &
+Subject 24 & 46 & 104 & 197 & 76 & 33 & 483 \\ 
+Subject 25 & 265 & 259 & 303 & 87 & 147 & 0 &
+Subject 26 & 271 & 91 & 374 & 118 & 66 & 0 \\
+Subject 27 & 219 & 205 & 390 & 9 & 71 & 0 &
+Subject 28 & 143 & 175 & 424 & 31 & 145 & 12 \\
+Subject 29 & 251 & 116 & 335 & 69 & 116 & 0 & & & & & & & \\
+\end{tabular}
+ 
+\vspace{0.7cm}
+\textbf{Note that we have excluded the Subject 20 due to its lack of effective records and labels}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 % you can choose not to have a title for an appendix
 % if you want by leaving the argument blank
 
 
-The authors would like to thank...
 
 
-% Can use something like this to put references on a page
-% by themselves when using endfloat and the captionsoff option.
-\ifCLASSOPTIONcaptionsoff
-  \newpage
-\fi
-
-
-
-% trigger a \newpage just before the given reference
-% number - used to balance the columns on the last page
-% adjust value as needed - may need to be readjusted if
-% the document is modified later
-%\IEEEtriggeratref{8}
-% The "triggered" command can be changed if desired:
-%\IEEEtriggercmd{\enlargethispage{-5in}}
-
-% references section
-
-% can use a bibliography generated by BibTeX as a .bbl file
-% BibTeX documentation can be easily obtained at:
-% http://mirror.ctan.org/biblio/bibtex/contrib/doc/
-% The IEEEtran BibTeX style support page is at:
-% http://www.michaelshell.org/tex/ieeetran/bibtex/
-\bibliographystyle{IEEEtran}
-% argument is your BibTeX string definitions and bibliography database(s)
-\bibliography{reference}{}
 
 % that's all folks
 \end{document}

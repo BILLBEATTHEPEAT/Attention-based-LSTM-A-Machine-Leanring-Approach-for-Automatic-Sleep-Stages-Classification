@@ -16,7 +16,6 @@
   publisher={Elsevier}
 }
 
-
 @article{rechtschaffen1968manual,
   title={A manual of standardized terminology, techniques and scoring system for sleep stages of human subjects},
   author={Rechtschaffen, A and Kales, A},
@@ -36,6 +35,13 @@
   author={Bahdanau, Dzmitry and Cho, Kyunghyun and Bengio, Yoshua},
   journal={arXiv preprint arXiv:1409.0473},
   year={2014}
+}
+
+@inproceedings{prabhavalkar2017analysis,
+  title={An analysis of “attention” in sequence-to-sequence models,”},
+  author={Prabhavalkar, Rohit and Sainath, Tara N and Li, Bo and Rao, Kanishka and Jaitly, Navdeep},
+  booktitle={Proc. of Interspeech},
+  year={2017}
 }
 
 @article{chambon2017deep,
@@ -83,83 +89,4 @@
   year={2015}
 }
 
-@inproceedings{ebrahimi2008automatic,
-  title={Automatic sleep stage classification based on EEG signals by using neural networks and wavelet packet coefficients},
-  author={Ebrahimi, Farideh and Mikaeili, Mohammad and Estrada, Edson and Nazeran, Homer},
-  booktitle={Engineering in Medicine and Biology Society, 2008. EMBS 2008. 30th Annual International Conference of the IEEE},
-  pages={1151--1154},
-  year={2008},
-  organization={IEEE}
-}
 
-@inproceedings{nakamura2017complexity,
-  title={Complexity science for sleep stage classification from EEG},
-  author={Nakamura, Takashi and Adjei, Tricia and Alqurashi, Yousef and Looney, David and Morrell, Mary J and Mandic, Danilo P},
-  booktitle={Neural Networks (IJCNN), 2017 International Joint Conference on},
-  pages={4387--4394},
-  year={2017},
-  organization={IEEE}
-}
-
-@article{Chen2016XGBoost,
-  title={XGBoost: A Scalable Tree Boosting System},
-  author={Chen, Tianqi and Guestrin, Carlos},
-  pages={785-794},
-  year={2016},
-}
-
-
-@article{chapotot2010automated,
-  title={Automated sleep--wake staging combining robust feature extraction, artificial neural network classification, and flexible decision rules},
-  author={Chapotot, Florian and Becq, Guillaume},
-  journal={International Journal of Adaptive Control and Signal Processing},
-  volume={24},
-  number={5},
-  pages={409--423},
-  year={2010},
-  publisher={Wiley Online Library}
-}
-
-@article{zhang2017sleep,
-  title={Sleep Stage Classification Based on Multi-level Feature Learning and Recurrent Neural Networks via Wearable Device},
-  author={Zhang, Xin and Kou, Weixuan and Chang, Eric I and Gao, He and Fan, Yubo and Xu, Yan and others},
-  journal={arXiv preprint arXiv:1711.00629},
-  year={2017}
-}
-
-@article{norman2000interobserver,
-  title={Interobserver agreement among sleep scorers from different centers in a large dataset.},
-  author={Norman, Robert G and Pal, Ivan and Stewart, Chip and Walsleben, Joyce A and Rapoport, David M},
-  journal={Sleep},
-  volume={23},
-  number={7},
-  pages={901--908},
-  year={2000}
-}
-
-@article{dong2017mixed,
-  title={Mixed neural network approach for temporal sleep stage classification},
-  author={Dong, Hao and Supratak, Akara and Pan, Wei and Wu, Chao and Matthews, Paul M and Guo, Yike},
-  journal={IEEE Transactions on Neural Systems and Rehabilitation Engineering},
-  year={2017},
-  publisher={IEEE}
-}
-
-@inproceedings{ren2014convolutional,
-  title={Convolutional deep belief networks for feature extraction of EEG signal},
-  author={Ren, Yuanfang and Wu, Yan},
-  booktitle={Neural Networks (IJCNN), 2014 International Joint Conference on},
-  pages={2850--2853},
-  year={2014},
-  organization={IEEE}
-}
-
-@article{langkvist2012sleep,
-  title={Sleep stage classification using unsupervised feature learning},
-  author={L{\"a}ngkvist, Martin and Karlsson, Lars and Loutfi, Amy},
-  journal={Advances in Artificial Neural Systems},
-  volume={2012},
-  pages={5},
-  year={2012},
-  publisher={Hindawi Publishing Corp.}
-}
