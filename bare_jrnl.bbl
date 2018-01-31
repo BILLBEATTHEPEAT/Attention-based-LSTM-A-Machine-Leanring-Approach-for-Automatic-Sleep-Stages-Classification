@@ -88,6 +88,12 @@ M.~L{\"a}ngkvist, L.~Karlsson, and A.~Loutfi, ``Sleep stage classification
   using unsupervised feature learning,'' \emph{Advances in Artificial Neural
   Systems}, vol. 2012, p.~5, 2012.
 
+\bibitem{chambon2017deep}
+S.~Chambon, M.~Galtier, P.~Arnal, G.~Wainrib, and A.~Gramfort, ``A deep
+  learning architecture for temporal sleep stage classification using
+  multivariate and multimodal time series,'' \emph{arXiv preprint
+  arXiv:1707.03321}, 2017.
+
 \bibitem{itti1998model}
 L.~Itti, C.~Koch, and E.~Niebur, ``A model of saliency-based visual attention
   for rapid scene analysis,'' \emph{IEEE Transactions on pattern analysis and
@@ -113,12 +119,6 @@ D.~Bahdanau, K.~Cho, and Y.~Bengio, ``Neural machine translation by jointly
 M.-T. Luong, H.~Pham, and C.~D. Manning, ``Effective approaches to
   attention-based neural machine translation,'' \emph{arXiv preprint
   arXiv:1508.04025}, 2015.
-
-\bibitem{chambon2017deep}
-S.~Chambon, M.~Galtier, P.~Arnal, G.~Wainrib, and A.~Gramfort, ``A deep
-  learning architecture for temporal sleep stage classification using
-  multivariate and multimodal time series,'' \emph{arXiv preprint
-  arXiv:1707.03321}, 2017.
 
 \bibitem{Chen2016XGBoost}
 T.~Chen and C.~Guestrin, ``Xgboost: A scalable tree boosting system,'' pp.
